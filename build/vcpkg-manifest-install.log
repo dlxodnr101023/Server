@@ -1,0 +1,162 @@
+Detecting compiler hash for triplet arm64-osx...
+Compiler found: /usr/bin/c++
+The following packages are already installed:
+  * abseil:arm64-osx@20250814.1
+    argon2:arm64-osx@20190702#1
+  * boost-algorithm:arm64-osx@1.90.0#1
+  * boost-align:arm64-osx@1.90.0#1
+  * boost-array:arm64-osx@1.90.0#1
+    boost-asio[core,deadline-timer,spawn]:arm64-osx@1.90.0#1
+  * boost-assert:arm64-osx@1.90.0#1
+  * boost-bind:arm64-osx@1.90.0#1
+  * boost-cmake:arm64-osx@1.90.0#1
+  * boost-concept-check:arm64-osx@1.90.0#1
+  * boost-config:arm64-osx@1.90.0#1
+  * boost-container:arm64-osx@1.90.0#1
+  * boost-container-hash:arm64-osx@1.90.0#1
+  * boost-context:arm64-osx@1.90.0#1
+  * boost-conversion:arm64-osx@1.90.0#1
+  * boost-core:arm64-osx@1.90.0#1
+  * boost-date-time:arm64-osx@1.90.0#1
+  * boost-describe:arm64-osx@1.90.0#1
+  * boost-detail:arm64-osx@1.90.0#1
+  * boost-exception:arm64-osx@1.90.0#1
+  * boost-function:arm64-osx@1.90.0#1
+  * boost-function-types:arm64-osx@1.90.0#1
+  * boost-functional:arm64-osx@1.90.0#1
+  * boost-fusion:arm64-osx@1.90.0#1
+  * boost-headers:arm64-osx@1.90.0#1
+  * boost-integer:arm64-osx@1.90.0#1
+  * boost-intrusive:arm64-osx@1.90.0#1
+  * boost-io:arm64-osx@1.90.0#1
+  * boost-iterator:arm64-osx@1.90.0#1
+  * boost-lexical-cast:arm64-osx@1.90.0#1
+  * boost-move:arm64-osx@1.90.0#1
+  * boost-mp11:arm64-osx@1.90.0#1
+  * boost-mpl:arm64-osx@1.90.0#1
+  * boost-numeric-conversion:arm64-osx@1.90.0#1
+  * boost-optional:arm64-osx@1.90.0#1
+  * boost-pool:arm64-osx@1.90.0#1
+  * boost-predef:arm64-osx@1.90.0#1
+  * boost-preprocessor:arm64-osx@1.90.0#1
+  * boost-range:arm64-osx@1.90.0#1
+  * boost-regex:arm64-osx@1.90.0#1
+  * boost-smart-ptr:arm64-osx@1.90.0#1
+  * boost-static-assert:arm64-osx@1.90.0#1
+  * boost-system:arm64-osx@1.90.0#1
+  * boost-throw-exception:arm64-osx@1.90.0#1
+  * boost-tokenizer:arm64-osx@1.90.0#1
+  * boost-tuple:arm64-osx@1.90.0#1
+  * boost-type-traits:arm64-osx@1.90.0#1
+  * boost-typeof:arm64-osx@1.90.0#1
+  * boost-uninstall:arm64-osx@1.90.0#1
+  * boost-unordered:arm64-osx@1.90.0#1
+  * boost-utility:arm64-osx@1.90.0#1
+  * boost-variant2:arm64-osx@1.90.0#1
+  * boost-winapi:arm64-osx@1.90.0#1
+    fmt:arm64-osx@12.1.0
+  * hiredis:arm64-osx@1.3.0
+  * libpq[bonjour,core,lz4,openssl,zlib]:arm64-osx@16.9#3
+    libpqxx:arm64-osx@7.10.5
+  * lz4:arm64-osx@1.10.0
+    mailio:arm64-osx@0.25.3
+    openssl:arm64-osx@3.6.1#2
+    protobuf:arm64-osx@6.33.4#1
+    redis-plus-plus:arm64-osx@1.3.15
+    spdlog[core,fmt,tz-offset]:arm64-osx@1.17.0
+  * utf8-range:arm64-osx@6.33.4
+  * vcpkg-boost:arm64-osx@2025-03-29
+  * vcpkg-cmake:arm64-osx@2024-04-23
+  * vcpkg-cmake-config:arm64-osx@2024-05-23
+  * vcpkg-cmake-get-vars:arm64-osx@2025-05-29
+  * zlib:arm64-osx@1.3.1
+argon2 provides CMake targets:
+
+    find_package(unofficial-argon2 CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE unofficial::argon2::libargon2)
+
+The package boost-asio is compatible with built-in CMake targets of FindBoost.cmake:
+
+    find_package(Boost REQUIRED COMPONENTS asio)
+    target_link_libraries(main PRIVATE Boost::asio)
+
+or the generated cmake configs via:
+
+    find_package( REQUIRED CONFIG)
+    target_link_libraries(main PRIVATE Boost::asio)
+
+The package fmt provides CMake targets:
+
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt)
+
+    # Or use the header-only version
+    find_package(fmt CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE fmt::fmt-header-only)
+
+openssl is compatible with built-in CMake targets:
+
+  find_package(OpenSSL REQUIRED)
+  target_link_libraries(main PRIVATE OpenSSL::SSL)
+  target_link_libraries(main PRIVATE OpenSSL::Crypto)
+
+libpqxx provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(libpqxx CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE libpqxx::pqxx)
+
+libpqxx provides pkg-config modules:
+
+  # C++ client API for the PostgreSQL database management system.
+  libpqxx
+
+mailio provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(mailio CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE mailio::mailio)
+
+mailio provides pkg-config modules:
+
+  # Cross-platform MIME library for SMTP, POP3, and IMAP protocols
+  mailio
+
+protobuf provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(protobuf CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE protobuf::libupb protobuf::libprotoc protobuf::libprotobuf protobuf::libprotobuf-lite)
+
+protobuf provides pkg-config modules:
+
+  # Google's Data Interchange Format
+  protobuf-lite
+
+  # Google's Data Interchange Format
+  protobuf
+
+  # Google's Data Interchange Format
+  upb
+
+redis-plus-plus provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(redis++ CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE redis++::redis++_static)
+
+redis-plus-plus provides pkg-config modules:
+
+  # This is a Redis client, based on hiredis and written in C++11. It supports scritpting, pub/sub, pipeline, transaction, Redis Cluster, Redis Sentinel, connection pool, ACL, SSL and thread safety.
+  redis++
+
+The package spdlog provides CMake targets:
+
+    find_package(spdlog CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE spdlog::spdlog)
+
+    # Or use the header-only version
+    find_package(spdlog CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE spdlog::spdlog_header_only)
+
+All requested installations completed successfully in: 278 us

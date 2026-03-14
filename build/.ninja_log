@@ -1,0 +1,27 @@
+# ninja log v7
+33	2424	1772353296874742238	CMakeFiles/Servers.dir/src/main.cpp.o	7f5c34689cf2abb
+2424	2768	1772353299266407341	Servers	551cb7dc24232d62
+6	2360	1772354873334589656	build.ninja	6ca520621e3e9dab
+6	2360	1772354873333521942	/Users/taeuk/Server/build/cmake_install.cmake	6ca520621e3e9dab
+5	305	1772198256395044714	CMakeFiles/Servers.dir/src/password.cpp.o	40eb91ac257497c3
+5	442	1772198256395215798	CMakeFiles/Servers.dir/src/database/database.cpp.o	c54d4596e55f0c53
+5	447	1772198256395348299	CMakeFiles/Servers.dir/src/database/AccountRepository.cpp.o	28bc102665918965
+33	1905	1772353296875272324	CMakeFiles/Servers.dir/src/packet.pb.cc.o	464bd337df46416d
+33	2227	1772353296875470033	CMakeFiles/Servers.dir/src/mail.cpp.o	da4b8e9faa1ee6b0
+7	2260	1772354873334589656	build.ninja	6ca520621e3e9dab
+7	2260	1772354873334589656	/Users/taeuk/Server/build/cmake_install.cmake	6ca520621e3e9dab
+79	1213	1772354873418702718	CMakeFiles/Servers.dir/src/mail.cpp.o	da4b8e9faa1ee6b0
+79	1415	1772354873418420217	CMakeFiles/Servers.dir/src/main.cpp.o	7f5c34689cf2abb
+1415	1653	1772354874754571123	Servers	3108d283f4e3988a
+63	1291	1772356004891701122	CMakeFiles/Servers.dir/src/main.cpp.o	7f5c34689cf2abb
+1291	1593	1772356006119828012	Servers	3108d283f4e3988a
+71	1610	1772714580870235352	CMakeFiles/Servers.dir/src/database/database.cpp.o	c54d4596e55f0c53
+71	1955	1772714580870547437	CMakeFiles/Servers.dir/src/packet.pb.cc.o	464bd337df46416d
+70	2511	1772714580869499014	CMakeFiles/Servers.dir/src/main.cpp.o	7f5c34689cf2abb
+24	350	1772714754618152231	CMakeFiles/Servers.dir/src/database/AccountRepository.cpp.o	28bc102665918965
+23	1220	1772714754617149600	CMakeFiles/Servers.dir/src/main.cpp.o	7f5c34689cf2abb
+1220	1582	1772714755813628563	Servers	3108d283f4e3988a
+23	341	1772714847905998450	CMakeFiles/Servers.dir/src/database/AccountRepository.cpp.o	28bc102665918965
+341	617	1772714848224297804	Servers	3108d283f4e3988a
+8	1188	1772714894105416306	CMakeFiles/Servers.dir/src/main.cpp.o	7f5c34689cf2abb
+1188	1433	1772714895285243544	Servers	3108d283f4e3988a

@@ -79,10 +79,9 @@ private:
                     {
                         std::cout << "수신 성공\n";
 
-                        // payload 타입별 처리
                         switch (packet.payload_case())
                         {
-                        case Protocol::PacketWrapper::kCheckIdReq: // Res → Req
+                        case Protocol::PacketWrapper::kCheckIdReq:
                         {
                             const auto &request = packet.check_id_req();
                             std::cout << "받은 값 " << request.username() << std::endl;
@@ -90,10 +89,11 @@ private:
                             Protocol::PacketWrapper wrapper;
                             auto *msg = wrapper.mutable_check_id_res();
 
+                            bool isDuplicated = AccountRepository::isUsernameExists(request.username());
                             msg->set_username(request.username());
-                            msg->set_is_duplicated(AccountRepository::isUsernameExists(request.username()));
+                            msg->set_is_duplicated(isDuplicated);
 
-                            std::cout << "보낸 값 " << AccountRepository::isUsernameExists(request.username()) << std::endl;
+                            std::cout << "Duplicate: " << isDuplicated << std::endl;
 
                             send_packet(wrapper);
                             break;
@@ -111,7 +111,7 @@ private:
 
                             break;
                         }
-                        case Protocol::PacketWrapper::kEmailRes2: // 인증번호 확인 요청
+                        case Protocol::PacketWrapper::kEmailRes2:
                         {
                             const auto &req = packet.email_res2();
                             std::string email = req.email();
@@ -119,7 +119,6 @@ private:
 
                             try
                             {
-                                // 1. Redis에서 해당 이메일의 번호 꺼내기
                                 auto realCode = redis.get("auth:" + email);
 
                                 Protocol::PacketWrapper res;
@@ -127,19 +126,16 @@ private:
 
                                 if (realCode && *realCode == userInputCode)
                                 {
-                                    // [성공] 번호가 일치함
                                     msg->set_isverily(true);
                                     std::cout << "[Auth] 성공: " << email << std::endl;
                                 }
                                 else
                                 {
-                                    // [실패] 번호가 틀렸거나 만료됨
                                     msg->set_isverily(false);
 
                                     std::cout << "[Auth] 실패: " << email << std::endl;
                                 }
 
-                                // 3. 결과 전송
                                 send_packet(res);
                             }
                             catch (const sw::redis::Error &e)
@@ -160,7 +156,7 @@ private:
 
                             if (mails) {
                                 Account.createAccount(request.username(), hashPassword(request.password()),request.email());
-                                std::cout << "계정 생성완료" << std::endl;
+                                std::cout << "Account generation successful!" << std::endl;
                             }
 
                             break;
@@ -170,10 +166,12 @@ private:
                             const auto &request = packet.login();
 
                             if(Account.verifyLogin(request.username(), request.password())) {
-                                printf("로그인 성공!");
+                                std::cout << "Login Successful!" << std::endl;
                             }else{
-                                printf("프린트 실패 데스네...ㅜㅜ");
+                                std::cout << "Login Failed." << std::endl;
                             }
+
+                            break;
                         }
 
                         default:
@@ -186,7 +184,6 @@ private:
                         std::cout << "protobuf 파싱 실패\n";
                     }
 
-                    // 다음 패킷 대기
                     do_read_header();
                 }
             });
@@ -212,7 +209,7 @@ private:
             [this, self, buffer](boost::system::error_code ec, std::size_t)
             {
                 if (ec)
-                    std::cout << "send failed\n";
+                    std::cout << "Send failed\n";
             });
     }
 
