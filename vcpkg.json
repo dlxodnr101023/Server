@@ -6,6 +6,10 @@
     "boost-asio",
     "openssl",
     "spdlog",
-    "protobuf"
+    "protobuf",
+    "libpqxx",
+    "argon2",
+    "mailio",
+    "redis-plus-plus"
   ]
 }
